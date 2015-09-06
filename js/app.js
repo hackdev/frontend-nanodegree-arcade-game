@@ -50,8 +50,6 @@ var Player = function(){
 // Update player's position
 Player.prototype.update = function() {
     'use strict';
-    this.x = this.x;
-    this.y = this.y;
     this.checkCollision();
 };
 
@@ -108,8 +106,8 @@ Player.prototype.handleInput = function(keyInput) {
 // to see if player overlaps with any of the enemies
 Player.prototype.checkCollision = function() {
     'use strict';
-    for (var i = 0; i < allEnemies.length; i++) {
-        if(Math.abs(player.x - allEnemies[i].x) < 50 && Math.abs(player.y - allEnemies[i].y) < 42) {
+    for (var i = 0, len = allEnemies.length; i < len; i++) {
+        if(Math.abs(this.x - allEnemies[i].x) < 50 && Math.abs(this.y - allEnemies[i].y) < 42) {
             this.resetPosition();
         }
     }
