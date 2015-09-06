@@ -1,3 +1,8 @@
+//enable the strict mode -- helps to write more "secure" code by
+// preventing things such as marking down a function with a bad
+// syntax to execute or loading unused variables.
+'use strict';
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     this.x = x;
@@ -5,7 +10,7 @@ var Enemy = function(x, y) {
     this.speed=(Math.floor(Math.random() * 8) +1 )*50;
     this.direction='right';
     this.sprite = 'images/enemy-bug.png';
-};
+}
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -18,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     } else {
         this.speed=(Math.floor(Math.random() * 8) +1 )*50;
         this.direction='left';
-    };
+    }
 
     if ((this.x>-101) && (this.direction==='left')) {
         this.sprite='images/enemy-bug-left.png';
@@ -27,13 +32,13 @@ Enemy.prototype.update = function(dt) {
         this.direction='right';
         this.speed=(Math.floor(Math.random() * 8) +1 )*50;
         this.sprite='images/enemy-bug.png';
-    };
-};
+    }
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+}
 
 // Our hero
 // Define initial position and avatar
@@ -41,19 +46,19 @@ var Player = function(){
     this.x = 200;
     this.y = 390;
     this.sprite = 'images/char-pink-girl.png';
-};
+}
 
 // Update player's position
 Player.prototype.update = function(dt) {
     this.x = this.x;
     this.y = this.y;
     this.checkCollision();
-};
+}
 
 // Draw player on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+}
 
 // Define movement and boudaries to keep player on screen
 Player.prototype.handleInput = function(keyInput) {
@@ -95,7 +100,7 @@ Player.prototype.handleInput = function(keyInput) {
                 break;
             }
     }
-};
+}
 
 // Called by the player prototype's update method
 // to see if player overlaps with any of the enemies
@@ -105,13 +110,13 @@ Player.prototype.checkCollision = function() {
             this.resetPosition();
         }
     }
-};
+}
 
 // Place player in starting position
 Player.prototype.resetPosition = function() {
     this.x = 200;
     this.y = 390;
-};
+}
 
 // Instantiate player and enemies.
 // Place all enemy objects in an array called allEnemies
