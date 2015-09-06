@@ -1,3 +1,8 @@
+/* app.js
+ * This code defines game characters, their rendering and movement,
+ * including keyboard controls.
+ */
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     'use strict';
