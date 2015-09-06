@@ -11,7 +11,7 @@ Object of the game is to reach water while avoiding the bugs.
 
 Game resets when the player reaches water or collides with a bug.
 
-http://hackdev.github.io/frontend-nanodegree-arcade-game/
+You can see the live version of the game at http://hackdev.github.io/frontend-nanodegree-arcade-game/
 
 
 
